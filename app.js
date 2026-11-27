@@ -4,9 +4,11 @@ const errorMessage = document.querySelector("#error-message");
 
 let xmlDocument;
 
-async function loadRegistry() {
+async function loadRegistry() { 
   const response = await fetch("patients.xml");
   const xmlText = await response.text();
+  const parser = new DOMParser();
+  const xmlDocument = parser.parseFromString(xmlText, "application/xml");
 
   // TODO 3: Create a DOMParser and parse xmlText as "application/xml".
   const parser = null;
@@ -14,6 +16,7 @@ async function loadRegistry() {
 
   // TODO 4: Find the parsererror element. Show its text and stop if it exists.
   const parseError = null;
+  const parseError = xmlDocument.querySelector("parsererror");
   if (parseError) {
     errorMessage.hidden = false;
     errorMessage.textContent = "XML error: " + parseError.textContent;
@@ -28,6 +31,7 @@ function renderPatients() {
   list.replaceChildren();
 
   // TODO 5: Select all patient elements from xmlDocument.
+  const patients = xmlDocument.querySelectorAll("patient");
   const patients = [];
 
   patients.forEach((patient) => {
