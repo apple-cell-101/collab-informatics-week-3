@@ -33,10 +33,14 @@ function renderPatients() {
   // TODO 5: Select all patient elements from xmlDocument.
   const patients = xmlDocument.querySelectorAll("patient");
   const patients = [];
+  
 
   patients.forEach((patient) => {
     const status = patient.getAttribute("status");
-
+    if (selectedFilter !== "all" &&
+    patient.getAttribute("status") !== selectedFilter) {
+    continue;
+}
     // TODO 6: Keep all patients when the filter is "all".
     // Otherwise, skip patients whose status does not match the filter.
     //The logic means: If the filter is all, do not skip anyone. If the filter is critical, skip stable patients.
@@ -49,6 +53,8 @@ function renderPatients() {
 
     const name = document.createElement("h3");
     // TODO 7: Read the name element and assign it with textContent.
+    const patientName = patient.querySelector("name").textContent;
+    heading.textContent = patientName;
     name.textContent = "Patient name";
 
     const details = document.createElement("p");
