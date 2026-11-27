@@ -1,4 +1,4 @@
-"const filter = document.querySelector("#status-filter");
+const filter = document.querySelector("#status-filter");
 const list = document.querySelector("#patient-list");
 const errorMessage = document.querySelector("#error-message");
  
@@ -69,5 +69,4 @@ function renderPatients() {
 }
  
 filter.addEventListener("change", renderPatients);
-loadRegistry();
-"
+loadRegistry(); 

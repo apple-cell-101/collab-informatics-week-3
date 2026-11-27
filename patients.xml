@@ -1,4 +1,4 @@
-"<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <clinic>
   <patient id="P-101" status="critical">
     <name>Amina Noor</name>
@@ -13,5 +13,5 @@
     <condition>Cough &amp; cold</condition>
     <observation code="TEMP" unit="C">37.2</observation>
   </patient>
-</clinic>"
+</clinic>
  
